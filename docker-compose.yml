@@ -1,0 +1,38 @@
+version: '3'
+
+volumes:
+  mariadb_data:
+    driver: local
+
+services:
+
+  nginx:
+    build: ./docker/nginx
+    working_dir: /application
+    volumes:
+      - ./application:/application
+      - ./logs:/var/log/nginx
+    ports:
+      - ${NGNIX_BIND_PORT}:80
+
+  php-fpm:
+    build: ./docker/php-fpm
+    working_dir: /application
+    volumes:
+      - ./application:/application
+
+  mariadb:
+    image: jbergstroem/mariadb-alpine
+    ports:
+      - 33061:3306
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+
+networks:
+  default:

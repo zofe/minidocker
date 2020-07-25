@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  webserver:
+    expose:
+      - "80"
+    volumes:
+      - ./docker/nginx/nginx.prod.conf:/etc/nginx/conf.d/default.conf
+
+  database:
+    ports:
+      - ${MYSQL_BIND_PORT}:3306
+
+networks:
+  default:
+    external:
+      name: ${PROXY_NETWORK}
+
+
+
