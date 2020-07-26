@@ -3,6 +3,10 @@ version: '2'
 services:
   nginx:
     restart: always
+    environment:
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
     expose:
       - "80"
     volumes:
