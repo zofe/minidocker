@@ -1,13 +1,18 @@
 version: '2'
 
 services:
-  webserver:
+  nginx:
+    restart: always
     expose:
       - "80"
     volumes:
       - ./docker/nginx/nginx.prod.conf:/etc/nginx/conf.d/default.conf
 
-  database:
+  php-fpm:
+    restart: always
+
+  mariadb:
+    restart: always
     ports:
       - ${MYSQL_BIND_PORT}:3306
 

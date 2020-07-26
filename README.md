@@ -64,6 +64,7 @@ mkdir public && echo '<?php phpinfo();' > /application/public/index.php && chown
 - you can download, install and run laravel 
 
 ```
+rm /application/.gitkeep
 composer create-project --prefer-dist laravel/laravel /application
 chown -R www-data.www-data /application
 
