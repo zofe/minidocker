@@ -9,10 +9,7 @@ services:
     ports:
       - ${MYSQL_BIND_PORT}:3306
 
-networks:
-  default:
-    external:
-      name: ${PROXY_NETWORK}
+
 
 
 
