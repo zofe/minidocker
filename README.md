@@ -1,12 +1,12 @@
 ## Minidocker 
 
-minimal docker setup for PHP development,
+minimal docker setup for PHP development (i.e. Laravel projects),
 it start from alpine images:   
 - nginx(1.13)  
 - php-fpm (7.4)
 - mariadb (latest)
 
-The idea is to keep al images really small and ready to run on small basic vps:
+The idea is to keep all images really small and ready to run on small basic vps:
 
 ```
 .. minidocker_nginx      ..  20.8 MB  
@@ -44,7 +44,7 @@ DB_ROOT_PASSWORD=root
 ### usage
 
 - fork or download the repo 
-- then raise docker containers (nginx, php)
+- then raise docker containers (nginx, php, mariadb)
 
 ```
 docker-compose up -d
