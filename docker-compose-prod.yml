@@ -17,8 +17,6 @@ services:
 
   mariadb:
     restart: always
-    ports:
-      - ${MYSQL_BIND_PORT}:3306
 
 networks:
   default:
