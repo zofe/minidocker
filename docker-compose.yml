@@ -17,7 +17,7 @@ services:
     build: ./docker/php-fpm
     working_dir: /application
     volumes:
-      - ./application:/application
+      - ./application:/application:delegated
 
   mariadb:
     image: jbergstroem/mariadb-alpine
