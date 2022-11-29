@@ -3,15 +3,15 @@
 minimal docker setup for PHP development (i.e. Laravel projects),
 it start from alpine images:   
 - nginx(1.13)  
-- php-fpm (7.4)
+- php-fpm (8.1)
 - mariadb (latest)
 
 The idea is to keep all images really small and ready to run on small basic vps:
 
 ```
-.. minidocker_nginx      ..  20.8 MB  
-.. minidocker_mariadb_   ..  37.3 MB
-.. minidocker_php-fpm    ..  90 MB
+.. minidocker_nginx      ..  21 MB  
+.. minidocker_mariadb_   ..  44 MB
+.. minidocker_php-fpm    ..  93 MB
 ```
 
 ### configurations
@@ -61,6 +61,14 @@ docker-compose exec php-fpm bash
 mkdir public && echo '<?php phpinfo();' > /application/public/index.php && chown -R www-data.www-data /application/public/
 
 ```
+
+then you can check if all is working using
+
+http://localhost:80 
+
+
+### laravel sandbox
+
 - you can download, install and run laravel 
 
 ```
