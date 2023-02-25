@@ -3,7 +3,9 @@ FROM php:8.1-fpm-alpine
 RUN apk add --no-cache \
     bash \
     git \
-    nano
+    nano \
+    nodejs \
+    npm
 
 #RUN docker-php-ext-configure xxxxx
 RUN docker-php-ext-install pdo pdo_mysql
